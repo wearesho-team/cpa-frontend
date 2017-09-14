@@ -1,19 +1,18 @@
-import {LeadInterface} from "../LeadFactory";
+import {SalesDoublerLeadFactory} from "./SalesDoublerLeadFactory";
+import {AbstractLead} from "../AbstractLead";
 
-export class SalesDoublerLead implements LeadInterface {
+export class SalesDoublerLead extends AbstractLead {
     public clickId: string;
 
     constructor(clickId: string) {
+        super();
         this.clickId = clickId;
     }
 
-    // todo: implement
-    get url() {
-        return undefined;
-    }
-
-    // todo: implement
-    get cookie() {
-        return undefined;
+    get data(): object {
+        return {
+            utm_source: SalesDoublerLeadFactory.utmSource,
+            [SalesDoublerLeadFactory.clickIdParam]: this.clickId,
+        };
     }
 }

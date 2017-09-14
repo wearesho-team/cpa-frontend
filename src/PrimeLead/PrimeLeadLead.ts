@@ -1,18 +1,18 @@
-import {LeadInterface} from "../LeadFactory";
+import {PrimeLeadLeadFactory} from "./PrimeLeadLeadFactory";
+import {AbstractLead} from "../AbstractLead";
 
-export class PrimeLeadLead implements LeadInterface {
+export class PrimeLeadLead extends AbstractLead {
     public transactionId: string;
 
     constructor(transactionId: string) {
+        super();
         this.transactionId = transactionId;
     }
 
-    // @todo: implement
-    get url(): string {
-        return undefined;
-    }
-
-    get cookie(): string {
-        return undefined;
+    get data(): object {
+        return {
+            utm_source: PrimeLeadLeadFactory.utmSource,
+            [PrimeLeadLeadFactory.transactionIdParam]: this.transactionId,
+        };
     }
 }
