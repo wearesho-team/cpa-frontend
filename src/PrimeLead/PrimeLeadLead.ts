@@ -1,4 +1,4 @@
-import {PrimeLeadLeadFactory} from "./PrimeLeadLeadFactory";
+import {utmSource, transactionIdParam} from "../data/PrimeLeadData"
 import {AbstractLead} from "../AbstractLead";
 
 export class PrimeLeadLead extends AbstractLead {
@@ -11,8 +11,8 @@ export class PrimeLeadLead extends AbstractLead {
 
     get data(): object {
         return {
-            utm_source: PrimeLeadLeadFactory.utmSource,
-            [PrimeLeadLeadFactory.transactionIdParam]: this.transactionId,
+            utm_source: utmSource,
+            [transactionIdParam]: this.transactionId,
         };
     }
 }
