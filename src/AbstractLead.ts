@@ -5,7 +5,7 @@ export abstract class AbstractLead implements LeadInterface {
         const data = this.data;
 
         return Object.keys(data)
-            .map((key: string): string => `${key}=${data[key]}`)
+            .map((key: string): string => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
             .join("&");
     }
 

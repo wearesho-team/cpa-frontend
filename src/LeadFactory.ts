@@ -8,17 +8,21 @@ export interface LeadInterface {
 
 export interface LeadFactoryInterface {
     fromUrl(url: string): LeadInterface | undefined;
+
     fromCookie(url: string): LeadInterface | undefined;
 }
 
 export class LeadFactory implements LeadFactoryInterface {
     public factories: LeadFactoryInterface[];
 
-    public constructor() {
-        this.factories = [
-            new PrimeLeadLeadFactory(),
-            new SalesDoublerLeadFactory(),
-        ];
+    public constructor(factories?: LeadFactoryInterface[]) {
+        if (factories === undefined) {
+            factories = [
+                new SalesDoublerLeadFactory(),
+                new PrimeLeadLeadFactory(),
+            ];
+        }
+        this.factories = factories;
     }
 
     public fromUrl = (url: string): LeadInterface | undefined => {
