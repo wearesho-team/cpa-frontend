@@ -1,2 +1,2 @@
 export * from "./PrimeLeadLead";
-export * from "PrimeLeadLeadFactory";
+export * from "./PrimeLeadLeadFactory";
