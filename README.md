@@ -5,3 +5,12 @@
 This packages created fo commercial products of [Wearesho Team](https://wearesho.com)
 
 Front-end adaptation of [PHP Library](https://github.com/wearesho-team/cpa-integration)
+
+## Installation
+Using npm
+```bash
+npm i --save cpa-integration
+```
+
+## License
+[MIT](./LICENSE)

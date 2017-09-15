@@ -1,7 +1,8 @@
 {
-  "name": "@wearesho/cpa-integration-frontend",
-  "version": "1.0.0-dev",
+  "name": "cpa-integration",
+  "version": "1.0.0",
   "description": "CPA Networks integration",
+  "private": false,
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "scripts": {
@@ -10,7 +11,7 @@
     "dev": "./node_modules/.bin/webpack-dev-server",
     "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "./node_modules/.bin/tslint --project . --exclude ./node_modules/*",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,7 @@
   "devDependencies": {
     "@types/chai": "^4.0.3",
     "@types/chai-enzyme": "^0.6.2",
-    "@types/mocha": "^2.2.41",
+    "@types/mocha": "^2.2.43",
     "awesome-typescript-loader": "^3.2.2",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
@@ -46,19 +47,22 @@
     "clean-webpack-plugin": "^0.1.16",
     "codecov": "^2.3.0",
     "cross-env": "^5.0.5",
-    "mocha": "^3.5.0",
+    "mocha": "^3.5.3",
     "nyc": "^11.1.0",
     "pre-commit": "^1.2.2",
     "source-map-loader": "^0.2.1",
-    "source-map-support": "^0.4.15",
+    "source-map-support": "^0.4.18",
     "ts-node": "^3.3.0",
     "tslint": "^5.6.0",
     "typescript": "^2.4.2",
+    "url-search-params-polyfill": "^2.0.1",
     "webpack": "^3.4.1",
-    "webpack-dev-server": "^2.6.1",
+    "webpack-dev-server": "^2.8.2",
     "webpack-node-externals": "^1.6.0"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "url-search-params-polyfill": "^2.0.1"
+  },
   "nyc": {
     "extension": [
       ".ts",
@@ -75,9 +79,6 @@
       "text-summary"
     ],
     "report-dir": "./tests/output"
-  },
-  "dependencies": {
-    "url-search-params-polyfill": "^2.0.1"
   },
   "pre-commit": [
     "lint",

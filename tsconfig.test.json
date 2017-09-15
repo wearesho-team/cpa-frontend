@@ -1,13 +1,3 @@
 {
-  "compilerOptions": {
-    "target": "es2015",
-    "sourceMap": true,
-    "removeComments": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "exclude": [
-    "./node_modules/**/*"
-  ]
+  "extends": "./tsconfig.json"
 }
