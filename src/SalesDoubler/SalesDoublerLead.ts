@@ -1,4 +1,4 @@
-import {SalesDoublerLeadFactory} from "./SalesDoublerLeadFactory";
+import {utmSource, clickIdParam} from "../data/SalesDoublerData"
 import {AbstractLead} from "../AbstractLead";
 
 export class SalesDoublerLead extends AbstractLead {
@@ -11,8 +11,8 @@ export class SalesDoublerLead extends AbstractLead {
 
     get data(): object {
         return {
-            utm_source: SalesDoublerLeadFactory.utmSource,
-            [SalesDoublerLeadFactory.clickIdParam]: this.clickId,
+            utm_source: utmSource,
+            [clickIdParam]: this.clickId,
         };
     }
 }

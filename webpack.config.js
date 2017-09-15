@@ -29,7 +29,7 @@ const config = {
         filename: 'index.js',
         path: path.resolve('./build'),
         publicPath: "/",
-        library: "react-context-form",
+        library: "cpa-integration",
         libraryTarget: "umd",
     },
 
@@ -46,12 +46,12 @@ const config = {
     module: {
         loaders: [
             {
-                test: /\.tsx?$/,
+                test: /\.ts$/,
                 loaders: [
                     {
                         loader: "babel-loader",
                         query: {
-                            presets: ['es2015', 'react', 'stage-0', 'stage-1',],
+                            presets: ['es2015', 'stage-0', 'stage-1',],
                         },
                     },
                     "awesome-typescript-loader",
@@ -59,11 +59,11 @@ const config = {
             }
             ,
             {
-                test: /\.jsx?$/,
+                test: /\.js$/,
                 exclude: [/node_modules/],
                 loader: "babel-loader",
                 query: {
-                    presets: ['es2015', 'react', 'stage-0', 'stage-1',]
+                    presets: ['es2015', 'stage-0', 'stage-1',]
                 },
             },
             {

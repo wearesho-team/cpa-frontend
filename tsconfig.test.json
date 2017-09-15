@@ -5,8 +5,7 @@
     "removeComments": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react"
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "./node_modules/**/*"
