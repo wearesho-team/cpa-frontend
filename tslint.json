@@ -6,6 +6,7 @@
     "no-empty-interface": true,
     "no-magic-numbers": [-1, 0, 1, 2],
     "no-reference": true,
+    "array-type": false,
     "curly": true,
     "await-promise": true,
     "no-empty": true,
