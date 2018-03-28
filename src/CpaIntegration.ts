@@ -21,9 +21,9 @@ export class CpaIntegration {
      * It will store lead information in localStorage until we identify current user.
      * Make sure that it will be called before `onLogin` in any scenario.
      */
-    public onLoad(url: URL) {
+    public onLoad(url: URLSearchParams) {
         let lead: LeadInterface | undefined;
-        lead = CpaIntegration.parsers.reduce((lead: LeadInterface | undefined, parser) => lead || parser(url.searchParams), lead);
+        lead = CpaIntegration.parsers.reduce((lead: LeadInterface | undefined, parser) => lead || parser(url), lead);
         if (!lead) {
             return;
         }
