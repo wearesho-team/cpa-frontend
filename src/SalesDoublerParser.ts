@@ -5,7 +5,7 @@ export const SalesDoublerParser: ParserInterface = (params: URLSearchParams) => 
         return;
     }
     return {
-        source: "sales-douber",
+        source: "sales-doubler",
         config: {
             clickId: params.get("aff_sub"),
             aid: params.get("utm_campaign"), // web master identifier

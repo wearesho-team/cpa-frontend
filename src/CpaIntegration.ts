@@ -18,7 +18,7 @@ export class CpaIntegration {
 
     /**
      * This method should be used when page is loaded and we can use URL to detect lead info.
-     * It will store lead information in localStorage until we identify current user.
+     * It will store lead information in cookies until we identify current user.
      * Make sure that it will be called before `onLogin` in any scenario.
      */
     public onLoad(url: URLSearchParams) {
@@ -63,7 +63,7 @@ export class CpaIntegration {
                 || !lead.hasOwnProperty("source")
                 || !lead.hasOwnProperty("config")
             ) {
-                localStorage.removeItem(CpaIntegration.cookieKey);
+                Cookies.remove(CpaIntegration.cookieKey, { domain: this.cookieDomain, });
                 return;
             }
             return lead;
