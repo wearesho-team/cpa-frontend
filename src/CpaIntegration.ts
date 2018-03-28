@@ -1,9 +1,13 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-import { LeadInterface } from "./LeadInterface";
-import { ParserInterface } from "./ParserInterface";
 import { SalesDoublerParser } from "./SalesDoublerParser";
+
+export interface LeadInterface {
+    source: string;
+    config: object;
+}
+export type ParserInterface = (params: URLSearchParams) => LeadInterface | undefined
 
 export class CpaIntegration {
     protected static cookieKey = "bobra.lead";
