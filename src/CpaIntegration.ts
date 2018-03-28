@@ -1,11 +1,12 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 import { LeadInterface } from "./LeadInterface";
 import { ParserInterface } from "./ParserInterface";
 import { SalesDoublerParser } from "./SalesDoublerParser";
 
 export class CpaIntegration {
-    protected static localStorageKey = "bobra.lead";
+    protected static cookieKey = "bobra.lead";
     protected static parsers: Array<ParserInterface> = [
         SalesDoublerParser,
     ];
@@ -21,45 +22,50 @@ export class CpaIntegration {
      * Make sure that it will be called before `onLogin` in any scenario.
      */
     public onLoad(url: URL) {
-        let lead: LeadInterface;
-        for (const parser of CpaIntegration.parsers) {
-            lead = parser(url.searchParams);
-        }
+        let lead: LeadInterface | undefined;
+        lead = CpaIntegration.parsers.reduce((lead: LeadInterface | undefined, parser) => lead || parser(url.searchParams), lead);
         if (!lead) {
             return;
         }
-        localStorage.setItem(CpaIntegration.localStorageKey, JSON.stringify(lead));
+        Cookies.set(CpaIntegration.cookieKey, JSON.stringify(lead));
     }
 
     /**
      * This method should be used when user is authorized and we can save lead information
      * related to current user on back-end 
      */
-    public onLogin(): void {
+    public async onLogin(): Promise<void> {
         const lead = this.lead;
-        axios.post(this.url(lead.source), {
-            Lead: lead.config,
-        })
-            .then(() => localStorage.removeItem(CpaIntegration.localStorageKey));
+
+        if (!lead) {
+            return;
+        }
+
+        await axios.post(this.url(lead.source), {
+            LeadForm: lead.config,
+        });
+        Cookies.remove(CpaIntegration.cookieKey);
     }
 
     protected get lead(): LeadInterface | undefined {
-        const ls = localStorage.getItem(CpaIntegration.localStorageKey);
-        let lead: LeadInterface;
+        const ls = Cookies.get(CpaIntegration.cookieKey);
+        if (!ls) {
+            return;
+        }
+
         try {
-            lead = JSON.parse(ls);
+            const lead = JSON.parse(ls);
             if (
                 "object" !== typeof lead
                 || !lead.hasOwnProperty("source")
                 || !lead.hasOwnProperty("config")
             ) {
-                localStorage.removeItem(CpaIntegration.localStorageKey);
+                localStorage.removeItem(CpaIntegration.cookieKey);
                 return;
             }
+            return lead;
         } catch {
             return;
         }
-        return lead;
     }
-
 }

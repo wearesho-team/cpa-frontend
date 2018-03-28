@@ -1,8 +1,7 @@
 {
-  "name": "cpa-integration",
-  "version": "2.0.0",
+  "name": "@bobra/cpa-frontend",
+  "version": "1.0.0",
   "description": "CPA Networks integration",
-  "private": false,
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "scripts": {
@@ -15,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wearesho-team/cpa-integration-frontend.git"
+    "url": "git+https://github.com/wearesho-team/bobra-cpa-frontend.git"
   },
   "keywords": [
     "react",
@@ -27,14 +26,15 @@
     "inputs"
   ],
   "author": "Alexander Letnikow",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/wearesho-team/cpa-integration-frontend/issues"
+    "url": "https://github.com/wearesho-team/bobra-cpa-frontend/issues"
   },
-  "homepage": "https://github.com/wearesho-team/cpa-integration-frontend#readme",
+  "homepage": "https://github.com/wearesho-team/bobra-cpa-frontend#readme",
   "devDependencies": {
     "@types/chai": "^4.0.3",
     "@types/chai-enzyme": "^0.6.2",
+    "@types/js-cookie": "^2.1.0",
     "@types/mocha": "^2.2.43",
     "awesome-typescript-loader": "^3.2.2",
     "axios": "^0.18.0",
@@ -84,5 +84,11 @@
   "pre-commit": [
     "lint",
     "test"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://npm.horatius.pro"
+  },
+  "dependencies": {
+    "js-cookie": "^2.2.0"
+  }
 }
