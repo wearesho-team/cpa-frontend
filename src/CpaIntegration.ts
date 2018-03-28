@@ -10,10 +10,10 @@ export class CpaIntegration {
     protected static parsers: Array<ParserInterface> = [
         SalesDoublerParser,
     ];
-    protected url: (source: string) => string;
+    protected cookieDomain: string | undefined;
 
-    constructor(url: CpaIntegration["url"]) {
-        this.url = url;
+    constructor(cookieDomain: string | undefined = undefined) {
+        this.cookieDomain = cookieDomain;
     }
 
     /**
@@ -24,27 +24,30 @@ export class CpaIntegration {
     public onLoad(url: URLSearchParams) {
         let lead: LeadInterface | undefined;
         lead = CpaIntegration.parsers.reduce((lead: LeadInterface | undefined, parser) => lead || parser(url), lead);
+
         if (!lead) {
             return;
         }
-        Cookies.set(CpaIntegration.cookieKey, JSON.stringify(lead));
+
+        Cookies.set(CpaIntegration.cookieKey, lead, { domain: this.cookieDomain, });
     }
 
     /**
      * This method should be used when user is authorized and we can save lead information
      * related to current user on back-end 
      */
-    public async onLogin(): Promise<void> {
+    public async onLogin(url: (source: string) => string): Promise<void> {
         const lead = this.lead;
 
         if (!lead) {
             return;
         }
 
-        await axios.post(this.url(lead.source), {
+        await axios.post(url(lead.source), {
             LeadForm: lead.config,
         });
-        Cookies.remove(CpaIntegration.cookieKey);
+
+        Cookies.remove(CpaIntegration.cookieKey, { domain: this.cookieDomain, });
     }
 
     protected get lead(): LeadInterface | undefined {
