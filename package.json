@@ -1,6 +1,6 @@
 {
   "name": "@bobra/cpa-frontend",
-  "version": "3.2.2",
+  "version": "3.3.0",
   "description": "CPA Networks integration",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
