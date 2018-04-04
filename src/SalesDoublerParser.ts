@@ -1,7 +1,7 @@
 import { ParserInterface } from "./CpaIntegration";
 
 export const SalesDoublerParser: ParserInterface = (params: URLSearchParams) => {
-    if (params.get("utm_source") !== "cpanet_salesdoubler" && !params.has("aff_sub")) {
+    if (params.get("utm_source") !== "cpanet_salesdoubler" || !params.has("aff_sub")) {
         return;
     }
     return {

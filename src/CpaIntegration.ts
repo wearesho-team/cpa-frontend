@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 
 import { SalesDoublerParser } from "./SalesDoublerParser";
 import { LoanGateParser } from "./LoanGateParser";
+import { DoAffiliateParser } from ".";
 
 export interface LeadInterface {
     source: string;
@@ -15,6 +16,7 @@ export class CpaIntegration {
     protected static parsers: Array<ParserInterface> = [
         SalesDoublerParser,
         LoanGateParser,
+        DoAffiliateParser,
     ];
     protected cookieDomain: string | undefined;
 
