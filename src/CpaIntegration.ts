@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 import { SalesDoublerParser } from "./SalesDoublerParser";
 import { LoanGateParser } from "./LoanGateParser";
-import { DoAffiliateParser } from ".";
+import { DoAffiliateParser } from "./DoAffiliateParser";
 
 export interface LeadInterface {
     source: string;
