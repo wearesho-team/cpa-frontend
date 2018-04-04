@@ -4,6 +4,8 @@ import Cookies from "js-cookie";
 import { SalesDoublerParser } from "./SalesDoublerParser";
 import { LoanGateParser } from "./LoanGateParser";
 import { DoAffiliateParser } from "./DoAffiliateParser";
+import { CashkaParser } from "./CashkaParser";
+import { AdmitAdParser } from "./AdmitAdParser";
 
 export interface LeadInterface {
     source: string;
@@ -17,6 +19,8 @@ export class CpaIntegration {
         SalesDoublerParser,
         LoanGateParser,
         DoAffiliateParser,
+        CashkaParser,
+        AdmitAdParser,
     ];
     protected cookieDomain: string | undefined;
 
