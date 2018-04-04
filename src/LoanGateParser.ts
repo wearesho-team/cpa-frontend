@@ -8,7 +8,7 @@ export const LoanGateParser: ParserInterface = (params: URLSearchParams) => {
     return {
         source: "loan-gate",
         config: {
-            aid: params.get("afclick"), // web master identifier
+            afclick: params.get("afclick"), // web master identifier
         }
     }
 };
