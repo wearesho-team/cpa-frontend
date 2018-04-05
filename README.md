@@ -9,6 +9,7 @@ Integrated:
 - LoanGate
 - Cashka
 - AdmitAd
+- PrimeLead
 
 ## Installation
 Using npm
