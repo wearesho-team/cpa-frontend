@@ -6,6 +6,7 @@ import { LoanGateParser } from "./LoanGateParser";
 import { DoAffiliateParser } from "./DoAffiliateParser";
 import { CashkaParser } from "./CashkaParser";
 import { AdmitAdParser } from "./AdmitAdParser";
+import { PrimeLeadParser } from "./PrimeLeadParser";
 
 export interface LeadInterface {
     source: string;
@@ -21,6 +22,7 @@ export class CpaIntegration {
         DoAffiliateParser,
         CashkaParser,
         AdmitAdParser,
+        PrimeLeadParser,
     ];
     protected cookieDomain: string | undefined;
 

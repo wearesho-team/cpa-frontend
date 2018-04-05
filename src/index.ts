@@ -4,3 +4,4 @@ export * from "./DoAffiliateParser";
 export * from "./LoanGateParser";
 export * from "./CashkaParser";
 export * from "./AdmitAdParser";
+export * from "./PrimeLeadParser";
