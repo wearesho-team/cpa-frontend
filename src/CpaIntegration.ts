@@ -45,7 +45,10 @@ export class CpaIntegration {
             return;
         }
 
-        Cookies.set(CpaIntegration.cookieKey, lead, { domain: this.cookieDomain });
+        Cookies.set(CpaIntegration.cookieKey, lead, {
+            domain: this.cookieDomain,
+            expires: 30,
+        });
     }
 
     /**
