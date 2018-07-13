@@ -10,6 +10,7 @@ Integrated:
 - Cashka
 - AdmitAd
 - PrimeLead
+- LeadsSu
 
 ## Installation
 Using npm
