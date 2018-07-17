@@ -11,6 +11,7 @@ Integrated:
 - AdmitAd
 - PrimeLead
 - LeadsSu
+- FinLine
 
 ## Installation
 Using npm
