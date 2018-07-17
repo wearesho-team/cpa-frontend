@@ -6,3 +6,4 @@ export * from "./CashkaParser";
 export * from "./AdmitAdParser";
 export * from "./PrimeLeadParser";
 export * from "./LeadsSuParser";
+export * from "./FinLineParser";

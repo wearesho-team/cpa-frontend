@@ -8,6 +8,7 @@ import { CashkaParser } from "./CashkaParser";
 import { AdmitAdParser } from "./AdmitAdParser";
 import { PrimeLeadParser } from "./PrimeLeadParser";
 import { LeadsSuParser } from "./LeadsSuParser";
+import { FinLineParser } from "./FinLineParser";
 
 export interface LeadInterface {
     source: string;
@@ -25,6 +26,7 @@ export class CpaIntegration {
         AdmitAdParser,
         PrimeLeadParser,
         LeadsSuParser,
+        FinLineParser,
     ];
     protected cookieDomain: string | undefined;
 
