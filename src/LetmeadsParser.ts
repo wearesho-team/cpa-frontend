@@ -8,7 +8,7 @@ export const LetmeadsParser: ParserInterface = (params: URLSearchParams) => {
     return {
         source: "letmeads",
         config: {
-            letmeads_ref: params.get("letmeads_ref"),
+            letmeadsRef: params.get("letmeads_ref"),
         }
     }
 };
