@@ -9,6 +9,7 @@ import { AdmitAdParser } from "./AdmitAdParser";
 import { PrimeLeadParser } from "./PrimeLeadParser";
 import { LeadsSuParser } from "./LeadsSuParser";
 import { FinLineParser } from "./FinLineParser";
+import { LetmeadsParser } from "./LetmeadsParser";
 
 export interface LeadInterface {
     source: string;
@@ -27,6 +28,7 @@ export class CpaIntegration {
         PrimeLeadParser,
         LeadsSuParser,
         FinLineParser,
+        LetmeadsParser,
     ];
     protected cookieDomain: string | undefined;
 

@@ -12,6 +12,7 @@ Integrated:
 - PrimeLead
 - LeadsSu
 - FinLine
+- Letmeads
 
 ## Installation
 Using npm
