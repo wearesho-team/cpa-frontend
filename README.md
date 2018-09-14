@@ -13,6 +13,7 @@ Integrated:
 - LeadsSu
 - FinLine
 - Letmeads
+- LeadGid
 
 ## Installation
 Using npm
