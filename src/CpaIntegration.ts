@@ -11,6 +11,7 @@ import { LeadsSuParser } from "./LeadsSuParser";
 import { FinLineParser } from "./FinLineParser";
 import { LetmeadsParser } from "./LetmeadsParser";
 import { LeadGidParser } from "./LeadGidParser";
+import { CpaType } from "./CpaType";
 
 export interface LeadInterface {
     source: string;
@@ -20,22 +21,24 @@ export type ParserInterface = (params: URLSearchParams) => LeadInterface | undef
 
 export class CpaIntegration {
     protected static cookieKey = "bobra.lead";
-    protected static parsers: Array<ParserInterface> = [
-        SalesDoublerParser,
-        LoanGateParser,
-        DoAffiliateParser,
-        CashkaParser,
-        AdmitAdParser,
-        PrimeLeadParser,
-        LeadsSuParser,
-        FinLineParser,
-        LetmeadsParser,
-        LeadGidParser,
-    ];
-    protected cookieDomain: string | undefined;
 
-    constructor(cookieDomain?: string) {
+    protected cookieDomain: string | undefined;
+    protected parsers: { [T in CpaType]: ParserInterface } = {
+        admitAd: AdmitAdParser,
+        salesDoubler: SalesDoublerParser,
+        loanGate: LoanGateParser,
+        doAffiliate: DoAffiliateParser,
+        cashka: CashkaParser,
+        primeLead: PrimeLeadParser,
+        leadsSu: LeadsSuParser,
+        finLine: FinLineParser,
+        letmeads: LetmeadsParser,
+        leadGid: LeadGidParser,
+    };
+
+    constructor(cookieDomain?: string, parsers?: { [T in CpaType]?: ParserInterface }) {
         this.cookieDomain = cookieDomain;
+        this.parsers = {...this.parsers, ...parsers};
     }
 
     /**
@@ -45,8 +48,8 @@ export class CpaIntegration {
      */
     public onLoad(url: URLSearchParams) {
         let lead: LeadInterface | undefined;
-        lead = CpaIntegration.parsers.reduce(
-            (parsedLead: LeadInterface | undefined, parser) => parsedLead || parser(url), lead
+        lead = Object.keys(this.parsers).reduce(
+            (parsedLead: LeadInterface | undefined, parserType) => parsedLead || this.parsers[parserType](url), lead
         );
 
         if (!lead) {

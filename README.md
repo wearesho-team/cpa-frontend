@@ -51,11 +51,30 @@ try {
 ```
 **Raven usage is optional**
 
+## Parsers customization
+
+You can override default parsers if default config is incompatible with your application.
+Implement [ParserInterface](./src/CpaIntegration.ts#L20) and specify it in constructor
+
+```typescript
+import { CpaIntegration, ParserInterface, CpaType } from "@bobra/cpa-frontend";
+
+class CustomAdmitAdParser implements ParserInterface {
+    // implementation
+}
+
+const cookieDomain = location.host;
+const cpaIntegration = new CpaIntegration(cookieDomain, {
+    [CpaType.admitAd]: CustomAdmitAdParser,
+})
+```
+
 ## Add new CPA
 To add new CPA:
 - Create parser in [src/](./src)
 - Add your parser to [index.ts](./src/index.ts) exports
-- Add your parser to [CpaIntergration.parsers](./src/CpaIntegration.ts#18)
+- Add your parser to [CpaType.ts](./src/CpaType.ts) enum
+- Add your parser to [default parsers list](./src/CpaIntegration.ts#L26)
 - Extend CPA networks list in [README](./README.md)
 
 ## License
