@@ -11,6 +11,7 @@ import { LeadsSuParser } from "./LeadsSuParser";
 import { FinLineParser } from "./FinLineParser";
 import { LetmeadsParser } from "./LetmeadsParser";
 import { LeadGidParser } from "./LeadGidParser";
+import { LinkProfitParser } from "./LinkProfitParser";
 
 export interface LeadInterface {
     source: string;
@@ -31,6 +32,7 @@ export class CpaIntegration {
         FinLineParser,
         LetmeadsParser,
         LeadGidParser,
+        LinkProfitParser,
     ];
     protected cookieDomain: string | undefined;
 
