@@ -14,6 +14,7 @@ Integrated:
 - FinLine
 - Letmeads
 - LeadGid
+- LinkProfit
 
 ## Installation
 Using npm
