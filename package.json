@@ -1,6 +1,6 @@
 {
   "name": "@sho-js/cpa",
-  "version": "3.13.0",
+  "version": "4.0.0",
   "description": "CPA Networks integration",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
