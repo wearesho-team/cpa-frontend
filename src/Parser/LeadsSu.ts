@@ -1,6 +1,6 @@
-import { ParserInterface } from "./CpaIntegration";
+import { ParserInterface } from "../Service";
 
-export const LeadsSuParser: ParserInterface = (params: URLSearchParams) => {
+export const LeadsSu: ParserInterface = (params: URLSearchParams) => {
     if (params.get("utm_source") !== "leads-su" || !params.has("transaction_id")) {
         return;
     }

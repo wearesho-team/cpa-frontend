@@ -1,6 +1,6 @@
-import { ParserInterface } from "./CpaIntegration";
+import { ParserInterface } from "../Service";
 
-export const AdmitAdParser: ParserInterface = (params: URLSearchParams) => {
+export const AdmitAd: ParserInterface = (params: URLSearchParams) => {
     if (!params.has("admitad_uid")) {
         return;
     }

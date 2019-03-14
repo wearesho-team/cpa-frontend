@@ -1,6 +1,6 @@
-import { ParserInterface } from "./CpaIntegration";
+import { ParserInterface } from "../Service";
 
-export const LetmeadsParser: ParserInterface = (params: URLSearchParams) => {
+export const Letmeads: ParserInterface = (params: URLSearchParams) => {
     if (!params.has("letmeads_ref")) {
         return;
     }

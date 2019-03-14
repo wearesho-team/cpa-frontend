@@ -1,6 +1,6 @@
-import { ParserInterface } from "./CpaIntegration";
+import { ParserInterface } from "../Service";
 
-export const SalesDoublerParser: ParserInterface = (params: URLSearchParams) => {
+export const SalesDoubler: ParserInterface = (params: URLSearchParams) => {
     const source = params.get("utm_source");
 
     if (

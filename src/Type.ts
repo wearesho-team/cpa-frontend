@@ -1,4 +1,4 @@
-export enum CpaType {
+export enum Type {
     admitAd = "admitAd",
     cashka = "cashka",
     doAffiliate = "doAffiliate",
@@ -9,4 +9,5 @@ export enum CpaType {
     loanGate = "loanGate",
     primeLead = "primeLead",
     salesDoubler = "salesDoubler",
+    linkProfit = "linkProfit",
 }

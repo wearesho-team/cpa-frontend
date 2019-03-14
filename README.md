@@ -25,21 +25,21 @@ npm i --save @sho-js/cpa
 ## Usage
 
 Add after page loaded:
-```tsx
-import { CpaIntegration } from "@sho-js/cpa";
+```typescript
+import * as Cpa from "@sho-js/cpa";
 
-(new CpaIntegration).onLoad(new URLSearchParams(window.location.search));
+(new Cpa.Service).onLoad(new URLSearchParams(window.location.search));
 ```
 
 Add after you identify user (LoginForm, bootstrap token found):
-```tsx
-import { CpaIntegration } from "@sho-js/cpa";
+```typescript
+import * as Cpa from "@sho-js/cpa";
 import Raven from "raven-js";
 
 // configure axios baseURL and authorization token here
 
 try {
-    (new CpaIntegration(window.location.hostname)).onLogin(
+    (new Cpa.Service(window.location.hostname)).onLogin(
         /** path to back-end should be generated here */
         (source) => `/lead/${source}`
     );
@@ -55,18 +55,18 @@ try {
 ## Parsers customization
 
 You can override default parsers if default config is incompatible with your application.
-Implement [ParserInterface](./src/CpaIntegration.ts#L20) and specify it in constructor
+Implement [ParserInterface](src/Service.ts) and specify it in constructor
 
 ```typescript
-import { CpaIntegration, ParserInterface, CpaType } from "@bobra/cpa-frontend";
+import * as Cpa from "@sho-js/cpa"
 
-class CustomAdmitAdParser implements ParserInterface {
+class CustomAdmitAdParser implements Cpa.ParserInterface {
     // implementation
 }
 
 const cookieDomain = location.host;
-const cpaIntegration = new CpaIntegration(cookieDomain, {
-    [CpaType.admitAd]: CustomAdmitAdParser,
+const cpaIntegration = new Cpa.Service(cookieDomain, {
+    [Cpa.Type.admitAd]: CustomAdmitAdParser,
 })
 ```
 
@@ -74,8 +74,8 @@ const cpaIntegration = new CpaIntegration(cookieDomain, {
 To add new CPA:
 - Create parser in [src/](./src)
 - Add your parser to [index.ts](./src/index.ts) exports
-- Add your parser to [CpaType.ts](./src/CpaType.ts) enum
-- Add your parser to [CpaIntergration.parsers](./src/CpaIntegration.ts)
+- Add your parser to [Type.ts](src/Type.ts) enum
+- Add your parser to [Service.parsers](src/Service.ts)
 - Extend CPA networks list in [README](./README.md)
 
 ## License

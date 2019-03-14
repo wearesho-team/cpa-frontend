@@ -1,6 +1,6 @@
-import { ParserInterface } from "./CpaIntegration";
+import { ParserInterface } from "../Service";
 
-export const LoanGateParser: ParserInterface = (params: URLSearchParams) => {
+export const LoanGate: ParserInterface = (params: URLSearchParams) => {
     if (!params.has("afclick")) {
         return;
     }

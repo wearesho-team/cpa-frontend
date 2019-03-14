@@ -1,6 +1,6 @@
-import { ParserInterface } from "./CpaIntegration";
+import { ParserInterface } from "../Service";
 
-export const LinkProfitParser: ParserInterface = (params: URLSearchParams) => {
+export const LinkProfit: ParserInterface = (params: URLSearchParams) => {
     if (
         params.get("utm_source") !== "linkprofit"
         || !params.has("wm_id")

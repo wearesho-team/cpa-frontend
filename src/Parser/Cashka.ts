@@ -1,6 +1,6 @@
-import { ParserInterface } from "./CpaIntegration";
+import { ParserInterface } from "../Service";
 
-export const CashkaParser: ParserInterface = (params: URLSearchParams) => {
+export const Cashka: ParserInterface = (params: URLSearchParams) => {
     if (
         !params.has("transaction_id")
         || params.get("utm_source") !== "cashka"
