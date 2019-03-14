@@ -50,9 +50,6 @@ const config = {
                 loaders: [
                     {
                         loader: "babel-loader",
-                        query: {
-                            presets: ['es2015', 'stage-0', 'stage-1',],
-                        },
                     },
                     "awesome-typescript-loader",
                 ],
@@ -62,9 +59,6 @@ const config = {
                 test: /\.js$/,
                 exclude: [/node_modules/],
                 loader: "babel-loader",
-                query: {
-                    presets: ['es2015', 'stage-0', 'stage-1',]
-                },
             },
             {
                 enforce: "pre",
