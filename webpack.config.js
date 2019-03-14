@@ -29,7 +29,7 @@ const config = {
         filename: 'index.js',
         path: path.resolve('./build'),
         publicPath: "/",
-        library: "cpa-integration",
+        library: "@sho-js/cpa",
         libraryTarget: "umd",
     },
 

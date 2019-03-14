@@ -19,21 +19,21 @@ Integrated:
 ## Installation
 Using npm
 ```bash
-npm i --save @bobra/cpa-frontend
+npm i --save @sho-js/cpa
 ```
 
 ## Usage
 
 Add after page loaded:
 ```tsx
-import { CpaIntegration } from "@bobra/cpa-frontend";
+import { CpaIntegration } from "@sho-js/cpa";
 
 (new CpaIntegration).onLoad(new URLSearchParams(window.location.search));
 ```
 
 Add after you identify user (LoginForm, bootstrap token found):
 ```tsx
-import { CpaIntegration } from "@bobra/cpa-frontend";
+import { CpaIntegration } from "@sho-js/cpa";
 import Raven from "raven-js";
 
 // configure axios baseURL and authorization token here
@@ -75,7 +75,7 @@ To add new CPA:
 - Create parser in [src/](./src)
 - Add your parser to [index.ts](./src/index.ts) exports
 - Add your parser to [CpaType.ts](./src/CpaType.ts) enum
-- Add your parser to [default parsers list](./src/CpaIntegration.ts#L26)
+- Add your parser to [CpaIntergration.parsers](./src/CpaIntegration.ts)
 - Extend CPA networks list in [README](./README.md)
 
 ## License
