@@ -9,4 +9,5 @@ export * from "./LeadsSuParser";
 export * from "./FinLineParser";
 export * from "./LetmeadsParser";
 export * from "./LeadGidParser";
+export * from "./LinkProfitParser";
 export * from "./CpaType";

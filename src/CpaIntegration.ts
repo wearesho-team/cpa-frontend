@@ -11,6 +11,8 @@ import { LeadsSuParser } from "./LeadsSuParser";
 import { FinLineParser } from "./FinLineParser";
 import { LetmeadsParser } from "./LetmeadsParser";
 import { LeadGidParser } from "./LeadGidParser";
+import { LinkProfitParser } from "./LinkProfitParser";
+
 import { CpaType } from "./CpaType";
 
 export interface LeadInterface {
@@ -21,7 +23,7 @@ export type ParserInterface = (params: URLSearchParams) => LeadInterface | undef
 
 export class CpaIntegration {
     protected static cookieKey = "bobra.lead";
-
+  
     protected cookieDomain: string | undefined;
     protected parsers: { [T in CpaType]: ParserInterface } = {
         admitAd: AdmitAdParser,
@@ -34,6 +36,7 @@ export class CpaIntegration {
         finLine: FinLineParser,
         letmeads: LetmeadsParser,
         leadGid: LeadGidParser,
+        linkProfit: LinkProfitParser,
     };
 
     constructor(cookieDomain?: string, parsers?: { [T in CpaType]?: ParserInterface }) {
