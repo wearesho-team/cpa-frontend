@@ -31,7 +31,9 @@ export class Service {
 
     constructor(cookieDomain?: string, parsers?: { [T in Type]?: ParserInterface }) {
         this.cookieDomain = cookieDomain;
-        this.parsers = { ...this.parsers, ...parsers };
+        if (parsers) {
+            Object.assign(this.parsers, parsers);
+        }
     }
 
     /**
