@@ -15,7 +15,6 @@
     "no-null-keyword": true,
     "no-var-keyword": true,
     "triple-equals": true,
-    "typeof-compare": true,
     "max-classes-per-file": [
       true,
       1
